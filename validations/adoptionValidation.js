@@ -2,14 +2,14 @@ const{check, validationResult}=require('express-validator');
 
 const generateAdoptionValidators= ()=>[
     check('user_id').notEmpty().isLength({max:50}).withMessage("Invalid user_id"),
-    check('pet_id').isLength({max:50}).withMessage("Invalid pet_id"),
-    check('date').optional().isLength({min:10,max:10}).withMessage("Invalid date")
+    check('pet_id').notEmpty().isLength({max:50}).withMessage("Invalid pet_id"),
+    check('date').isDate().notEmpty().withMessage("Invalid date")
 ]
 
 const updateAdoptionValidators= () =>[
     check('id').notEmpty().isNumeric().withMessage("invalid id"),
-    check('user_id').optional().isNumeric().withMessage("Invalid user_id"),
-    check('pet_id').optional().isNumeric().withMessage("Invalid pet_id"),
+    check('user_id').optional().isLength().withMessage("Invalid user_id"),
+    check('pet_id').optional().isLength().withMessage("Invalid pet_id"),
     check('date').optional().isDate().withMessage("Invalid date")
 ]
 const generateIdValidators=()=>[

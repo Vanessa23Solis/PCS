@@ -8,10 +8,11 @@ const generatePetValidators= ()=>[
 ]
 
 const updatePetValidators= () =>[
-    check('alias').notEmpty().isLength({max:50}).withMessage("Invalid alias"),
-    check('type').isIn(['DOG','CAT']).notEmpty({max:50}).withMessage("Invalid type"),
-    check('color').optional().isLength({min:10,max:10}).withMessage("Invalid color"),
-    check('notes').isLength({max:150}).withMessage("Invalid notes")
+    check('id').notEmpty().isLength({max:11}).withMessage("Invalid alias"),
+    check('alias').optional().isLength({max:50}).withMessage("Invalid alias"),
+    check('type').optional().isIn(['DOG','Cat']).withMessage("Invalid type"),
+    check('color').optional().isLength({max:20}).withMessage("Invalid color"),
+    check('notes').optional().isLength({max:150}).withMessage("Invalid notes")
 ]
 const generateIdValidators=()=>[
     check('id').notEmpty().isNumeric().withMessage("ivalid id")
