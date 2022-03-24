@@ -3,12 +3,12 @@ const{check, validationResult}=require('express-validator');
 const generatePetValidators= ()=>[
     check('alias').notEmpty().isLength({max:50}).withMessage("Invalid alias"),
     check('type').isIn(['DOG','CAT']).notEmpty({max:50}).withMessage("Invalid type"),
-    check('color').notEmpty().isLength({min:10,max:10}).withMessage("Invalid color"),
+    check('color').notEmpty().isLength({max:20}).withMessage("Invalid color"),
     check('notes').notEmpty().isLength({max:150}).withMessage("Invalid notes")
 ]
 
 const updatePetValidators= () =>[
-    check('id').notEmpty().isLength({max:11}).withMessage("Invalid alias"),
+    check('id').notEmpty().isLength({max:11}).withMessage("Invalid id"),
     check('alias').optional().isLength({max:50}).withMessage("Invalid alias"),
     check('type').optional().isIn(['DOG','Cat']).withMessage("Invalid type"),
     check('color').optional().isLength({max:20}).withMessage("Invalid color"),
